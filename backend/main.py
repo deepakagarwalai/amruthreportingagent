@@ -3,6 +3,11 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import text
 from database import engine
 import re
+import os
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8080))
+    uvicorn.run(app, host="0.0.0.0", port=port)
 
 app = FastAPI(title="Sales Analytics & AI Agent")
 
