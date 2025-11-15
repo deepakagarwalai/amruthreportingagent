@@ -14,6 +14,7 @@ driver = os.getenv("DB_DRIVER")
 # Encode special characters like @, #, $, %
 encoded_password = quote_plus(password)
 
+
 connection_string = (
     f"mssql+pyodbc://{username}:{encoded_password}@{server}:1433/{database}"
     f"?driver={driver.replace(' ', '+')}&Encrypt=yes&TrustServerCertificate=no"
