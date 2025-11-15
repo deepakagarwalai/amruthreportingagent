@@ -5,10 +5,6 @@ from database import engine
 import re
 import os
 
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8080))
-    uvicorn.run(app, host="0.0.0.0", port=port)
-
 app = FastAPI(title="Sales Analytics & AI Agent")
 
 # Allow frontend requests
@@ -97,3 +93,8 @@ async def chat(request: Request):
 
     except Exception as e:
         return {"reply": f"Error occurred: {str(e)}"}
+
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8080))
+    uvicorn.run(app, host="0.0.0.0", port=port)
